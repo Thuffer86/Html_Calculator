@@ -2,28 +2,51 @@
 <html>
 <head>
 <link href="Styles.css" type="text/css" rel="stylesheet">
-<script src="App.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+$(".value,.operator").click(function(){
+var v = $(this).val();
+$('#answer').val($('#answer').val() + v);
+});
+$('#clear').click(function(){
+    $('#answer').val('');
+    $('#operation').val('');
+    $('#operation').removeClass('activeAnswer');
+    $('#equals').attr('onclick','');
+});
+    $('.equals').click(function(){
+    var c =$('#answer').val();
+    $('#answer').val(eval(c));
+    });
+});
+    
+</script>
 </head>
 <body> 
     <div class="appLockup">
-      <p>8+8</p>
-      <button class="value" id="7" value="7">7</button>
-      <button class="value" id="8" value="8">8</button>
-      <button class="value" id="9" value="9">9</button>
-      <button class="operator" id="divide">/</button> <br>
-      <button class="value" id="4" value="4">4</button>
-      <button class="value" id="5" value="5">5</button>
-      <button class="value" id="6" value="6">6</button>
-      <button class="operator" id="multiply">x</button> <br>
-      <button class="value" id="1" value="1">1</button>
-      <button class="value" id="2" value="2">2</button>
-      <button class="value" id="3" value="3">3</button>
-      <button class="operator" id="subtract">-</button> <br>
-      <button class="operator" id="clear">C</button>
-      <button class="value" id="0">0</button>
-      <button class="operator" id="equals">=</button>
-      <button class="operator" id="addition">+</button> <br>
-  </div>
+    <form action="" id="calculator">
+      <input type="hidden" id="operation" value=""/>
+      <input type="hidden" id="prev_value" value=""/>
+      <input type="text" id="answer" value="" disabled="disabled"/><br>
+      <button type="button" class="value" id="7" value="7">7</button>
+      <button type="button" class="value" id="8" value="8">8</button>
+      <button type="button" class="value" id="9" value="9">9</button>
+      <button type="button" class="operator" id="divide" value="/">/</button> <br>
+      <button type="button" class="value" id="4" value="4">4</button>
+      <button type="button" class="value" id="5" value="5">5</button>
+      <button type="button" class="value" id="6" value="6">6</button>
+      <button type="button" class="operator" id="multiply" value="x">x</button> <br>
+      <button type="button" class="value" id="1" value="1">1</button>
+      <button type="button" class="value" id="2" value="2">2</button>
+      <button type="button" class="value" id="3" value="3">3</button>
+      <button type="button" class="operator" id="subtract" value="-">-</button> <br>
+      <button type="button" value="c" id="clear">C</button>
+      <button type="button" class="value" id="0">0</button>
+      <button type="button" class="equals" value="=" id="=">=</button>
+      <button type="button" class="operator" value="+" id="addition">+</button> <br>
+      <form action="" id="calculator">
+    </div>
 </body>
 </html>
